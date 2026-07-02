@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pvt Ltd Compliance Checklist — GST, Karnataka PT & MCA</title>
+<meta name="description" content="Interactive compliance checklist for an Indian Private Limited Company: monthly GST, Karnataka Professional Tax, and MCA/ROC filings." />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<div class="app">
+
+  <header class="top">
+    <div class="brand">
+      <h1>Compliance Checklist</h1>
+      <p>Private Limited Company · GST · Karnataka Professional Tax · MCA/ROC</p>
+    </div>
+    <div class="top-actions">
+      <button id="themeToggle" title="Toggle light/dark">🌓 Theme</button>
+      <button id="printBtn" title="Print / Save as PDF">🖨️ Print</button>
+    </div>
+  </header>
+
+  <div class="company-card">
+    <div>
+      <label for="companyName">Company Name</label>
+      <input id="companyName" type="text" placeholder="e.g. Acme Innovations Private Limited" />
+    </div>
+    <div>
+      <label for="fyLabel">Financial Year / Period</label>
+      <input id="fyLabel" type="text" placeholder="e.g. FY 2026-27" />
+    </div>
+  </div>
+
+  <div class="progress-overview">
+    <div class="row">
+      <strong id="overallLabel">0 / 0 tasks completed (0%)</strong>
+    </div>
+    <div class="bar-track"><div class="bar-fill" id="overallBar"></div></div>
+    <div id="freqProgress" style="margin-top:12px;"></div>
+  </div>
+
+  <div class="controls">
+    <input type="search" id="searchBox" placeholder="Search compliance items..." />
+    <button class="tab active" data-freq="All">All</button>
+    <button class="tab" data-freq="Monthly">Monthly</button>
+    <button class="tab" data-freq="Quarterly">Quarterly</button>
+    <button class="tab" data-freq="Half-Yearly">Half-Yearly</button>
+    <button class="tab" data-freq="Annually">Annually</button>
+  </div>
+
+  <div class="reset-row">
+    <button data-reset="Monthly">↺ Reset Monthly</button>
+    <button data-reset="Quarterly">↺ Reset Quarterly</button>
+    <button data-reset="Half-Yearly">↺ Reset Half-Yearly</button>
+    <button data-reset="Annually">↺ Reset Annual</button>
+    <button data-reset="All">↺ Reset All</button>
+  </div>
+
+  <div id="categories"></div>
+
+  <footer class="disclaimer">
+    <strong>Disclaimer:</strong> This checklist is a general reference for a private limited company registered
+    in Karnataka and is not exhaustive or a substitute for professional advice. Due dates, thresholds, and
+    fee/penalty amounts are subject to change via GST Council, CBDT, MCA and Karnataka Commercial Taxes
+    notifications. Please confirm current requirements with your Company Secretary, Chartered Accountant, or
+    tax consultant before relying on any date shown here. Progress you check off is stored only in this
+    browser (localStorage) — it is not sent anywhere.
+  </footer>
+
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
