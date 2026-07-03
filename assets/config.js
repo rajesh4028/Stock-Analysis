@@ -13,8 +13,8 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 const SUPABASE_CONFIG = {
-  url: "PASTE_YOUR_SUPABASE_PROJECT_URL_HERE",
-  anonKey: "PASTE_YOUR_SUPABASE_ANON_PUBLIC_KEY_HERE",
+  url: "https://qsvidxlhfvueosficsyt.supabase.co",
+  anonKey: "sb_publishable_E9dNQf35eqxFGELKS_TDEQ_VOaRWhjS",
 };
 
 // Returns true once real values have been filled in above.
