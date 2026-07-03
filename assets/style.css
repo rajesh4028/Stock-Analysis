@@ -249,11 +249,32 @@ button.primary:hover { filter: brightness(1.07); }
 .item:last-child { border-bottom: none; }
 
 .item input[type="checkbox"] {
-  margin-top: 3px;
   width: 18px;
   height: 18px;
   accent-color: var(--success);
   flex-shrink: 0;
+}
+
+.item .check-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.na-toggle {
+  padding: 2px 7px;
+  font-size: 0.68rem;
+  line-height: 1.4;
+  border-radius: 6px;
+  color: var(--text-muted);
+}
+
+.na-toggle.active {
+  background: var(--warning);
+  border-color: var(--warning);
+  color: #fff;
 }
 
 .item .content { flex: 1; min-width: 0; }
@@ -267,6 +288,19 @@ button.primary:hover { filter: brightness(1.07); }
 .item.done .item-title {
   text-decoration: line-through;
   color: var(--text-muted);
+}
+
+.item.na {
+  opacity: 0.55;
+}
+
+.item.na .item-title {
+  text-decoration: line-through;
+}
+
+.badge.na-badge {
+  background: var(--warning);
+  color: #fff;
 }
 
 .item .item-desc {
