@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Pvt Ltd Compliance Checklist — GST, Karnataka PT & MCA</title>
 <meta name="description" content="Interactive compliance checklist for an Indian Private Limited Company: monthly GST, Karnataka Professional Tax, and MCA/ROC filings." />
-<link rel="stylesheet" href="assets/style.css?v=2" />
+<link rel="stylesheet" href="assets/style.css?v=3" />
 </head>
 <body>
 <div class="app">
@@ -16,8 +16,13 @@
       <p>Private Limited Company · GST · Karnataka Professional Tax · MCA/ROC</p>
     </div>
     <div class="top-actions">
+      <div class="user-box">
+        <span id="userEmail" class="user-email"></span>
+        <span id="syncStatus" class="sync-status"></span>
+      </div>
       <button id="themeToggle" title="Toggle light/dark">🌓 Theme</button>
       <button id="printBtn" title="Print / Save as PDF">🖨️ Print</button>
+      <button id="logoutBtn" title="Sign out">↪ Sign out</button>
     </div>
   </header>
 
@@ -70,7 +75,10 @@
 
 </div>
 
-<script src="assets/data.js?v=2"></script>
-<script src="assets/app.js?v=2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/config.js?v=3"></script>
+<script src="assets/auth.js?v=3"></script>
+<script src="assets/data.js?v=3"></script>
+<script src="assets/app.js?v=3"></script>
 </body>
 </html>

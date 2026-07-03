@@ -10,23 +10,52 @@ for an Indian Private Limited Company registered in Karnataka:
 
 ## Features
 
-- Checkbox tracking per item, persisted in the browser via `localStorage` (nothing is sent to a server)
+- **User accounts** — register / sign in / sign out with secure email + password auth (powered by Supabase)
+- **Per-user cloud storage** — each account's checklist is saved to a database and syncs across devices; a local cache keeps it instant and works offline
+- Checkbox tracking per item, with "N/A" (Not Applicable) marking that excludes items from progress
 - Filter by frequency (Monthly / Quarterly / Half-Yearly / Annually) or search by keyword
 - Progress bar overall and per frequency
 - "Reset Monthly / Quarterly / Half-Yearly / Annual / All" buttons for starting a fresh period
 - Light/dark theme toggle, print-friendly view
 - Company name & financial year fields for labeling your own copy
 
+## Architecture
+
+| Layer | Technology |
+|-------|------------|
+| Frontend | Plain HTML/CSS/JS, hosted on GitHub Pages (no build step) |
+| Auth | Supabase Auth (email/password) |
+| Database | Supabase Postgres — one `checklist_state` row per user, protected by Row-Level Security |
+
+The Supabase **anon key** used in the frontend is safe to expose publicly; users can
+only ever read/write their own data because of the Row-Level Security policies in
+[`supabase/schema.sql`](supabase/schema.sql). The `service_role` key and database
+password are **never** placed in this repo.
+
+## One-time Supabase setup
+
+1. Create a free project at [supabase.com](https://supabase.com).
+2. **Create the database table:** open **SQL Editor → New query**, paste the contents
+   of [`supabase/schema.sql`](supabase/schema.sql), and click **Run**.
+3. **Connect the frontend:** in Supabase go to **Settings → API** and copy your
+   **Project URL** and **anon public** key into [`assets/config.js`](assets/config.js).
+4. **(Recommended) Set the Site URL:** in **Authentication → URL Configuration**, set
+   the Site URL to your live GitHub Pages URL so email-confirmation and password-reset
+   links point back to your site.
+   - For quick testing you can instead turn off **Authentication → Providers → Email →
+     "Confirm email"**, which lets accounts sign in immediately without email verification.
+
 ## Running locally
 
-No build step required — it's plain HTML/CSS/JS.
+No build step required — it's plain HTML/CSS/JS. After completing the Supabase setup
+above:
 
 ```bash
 python3 -m http.server 8000
-# then open http://localhost:8000/index.html
+# then open http://localhost:8000/login.html
 ```
 
-Or just open `index.html` directly in a browser.
+The app entry point is `login.html`; once signed in you're taken to `index.html`.
 
 ## Deploying to GitHub Pages
 

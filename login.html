@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sign In — Compliance Checklist</title>
+<meta name="description" content="Sign in or register to access your private company compliance checklist." />
+<link rel="stylesheet" href="assets/style.css?v=3" />
+</head>
+<body>
+<div class="auth-wrap">
+  <div class="auth-card">
+    <div class="auth-brand">
+      <h1>Compliance Checklist</h1>
+      <p>Private Limited Company · GST · Karnataka PT · MCA/ROC</p>
+    </div>
+
+    <div id="configWarning" class="auth-warning hidden">
+      ⚠️ This site isn't connected to its database yet. The owner needs to add
+      the Supabase project URL and anon key in <code>assets/config.js</code>.
+    </div>
+
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-mode="login" type="button">Sign In</button>
+      <button class="auth-tab" data-mode="register" type="button">Create Account</button>
+    </div>
+
+    <form id="authForm" autocomplete="on">
+      <div id="companyRow" class="auth-field hidden">
+        <label for="companyName">Company Name</label>
+        <input id="companyName" type="text" placeholder="Acme Innovations Private Limited" autocomplete="organization" />
+      </div>
+      <div class="auth-field">
+        <label for="email">Email</label>
+        <input id="email" type="email" required placeholder="you@company.com" autocomplete="email" />
+      </div>
+      <div class="auth-field">
+        <label for="password">Password</label>
+        <input id="password" type="password" required minlength="6" placeholder="At least 6 characters" autocomplete="current-password" />
+      </div>
+
+      <button id="submitBtn" class="primary auth-submit" type="submit">Sign In</button>
+    </form>
+
+    <div id="authMessage" class="auth-message hidden"></div>
+
+    <div class="auth-links">
+      <a href="#" id="forgotLink">Forgot password?</a>
+    </div>
+
+    <p class="auth-foot">
+      Your checklist progress is stored privately against your account and
+      syncs across your devices.
+    </p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/config.js?v=3"></script>
+<script src="assets/auth.js?v=3"></script>
+<script src="assets/login.js?v=3"></script>
+</body>
+</html>
